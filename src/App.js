@@ -3,20 +3,20 @@ import './App.css';
 import { Card, Grid } from '@mui/material';
 function App() {
 
-  const colorList = [
-    "#40826d","#922724","#9f1d35","#da1d81","#ffa089","#9f00ff","#004242","#00ffff","#645452",
-    "#f5deb3","#ff43a4","#fc6c85","#a2add0", "#722f37","#c9a0dc","#738678","#0f4d92","#ffff00",
-    "#ffae42","#9acd32","#0014a8","#2c1608"];
+
+    const generateRandomColor = () => {
+      const color = `#${Math.floor(Math.random() * 16777215).toString(16)}`;
+      return color;
+    };
+
 
   const [selectedColor, setSelectedColor] = useState(["white","white", "white", "white","white", "white", "white","white", "white", "white","white", "white"])
 
   const cardClick = (index) =>{
 
-      let randomColorIndex = Math.floor(Math.random() * colorList.length );
-
       setSelectedColor(selectedColor=>({
         ...selectedColor,
-        [index]: colorList[randomColorIndex]
+        [index]: generateRandomColor()
      }))
 
   }
